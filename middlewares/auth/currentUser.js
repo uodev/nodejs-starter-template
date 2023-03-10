@@ -1,9 +1,12 @@
-const getBearerToken = require("../../helpers/getBearerToken");
-const status = require("../../utils/errors/index");
-const {createToken} = require("../../helpers/jwtHelper");
+const { verifyToken } = require("../../helpers/jwtHelper");
 
 const currentUser = (req, res, next) => {
-    //! Hali hazırda user var mı yok mu onu kontrol ediyoruz!
-    
-    next();
-    }
+  //! Cookies de eğer token varsa req.user ekle yok ise next devam et!
+  const token = req.cookies.jwt;
+  if (!token) next();
+  const user = verifyToken(token);
+
+  req.user = user;
+  console.log("INFO: Current User Middleware", req.user);
+  next();
+};
