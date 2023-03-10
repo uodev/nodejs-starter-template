@@ -4,7 +4,8 @@
   "description": "Starter template for NodeJS. Includes express, mongoose, and dotenv. Will be updated as needed.",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
