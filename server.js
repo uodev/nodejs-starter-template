@@ -4,9 +4,8 @@ const limiter = require("./helpers/rateLimitHelper");
 const cors = require("cors");
 const helmet = require("helmet");
 const router = require("./routers/index");
-require("dotenv").config();
+require("dotenv").config({ path: "./config/.env" });
 const app = express();
-
 
 //global middlewares
 app.use(express.json());
