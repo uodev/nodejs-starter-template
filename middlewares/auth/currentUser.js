@@ -10,3 +10,5 @@ const currentUser = (req, res, next) => {
   console.log("INFO: Current User Middleware", req.user);
   next();
 };
+
+module.exports = currentUser;

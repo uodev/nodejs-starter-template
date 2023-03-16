@@ -1,11 +1,8 @@
-const status = require("../utils/errors/index");
+const { NotFound } = require("../utils/response");
 
 const getBearerToken = (req, res) => {
   const authHeader = req.get("Authorization") || null;
-  if (authHeader === null)
-    return res
-      .status(status.NotFound)
-      .json({ message: "No token provided", statusCode: status.NotFound });
+  if (authHeader === null) return NotFound(res, "No token provided");
   return authHeader.replace("Bearer ", "");
 };
 
